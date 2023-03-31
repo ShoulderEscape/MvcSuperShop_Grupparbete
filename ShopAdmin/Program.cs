@@ -3,14 +3,17 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ShopGeneral.Data;
 using ShopGeneral.Services;
+using ShopGeneral.Mailing;
 using Microsoft.EntityFrameworkCore;
 
 var builder = ConsoleApp.CreateBuilder(args);
+
 builder.ConfigureServices((ctx, services) =>
 {
     var connectionString = ctx.Configuration.GetConnectionString("DefaultConnection");
-    services.AddDbContext<ApplicationDbContext>(options =>
-        options.UseSqlServer(connectionString));
+
+    services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
+    
     services.AddDatabaseDeveloperPageExceptionFilter();
 
 
@@ -26,6 +29,7 @@ builder.ConfigureServices((ctx, services) =>
     //{
     //    logging.AddZLoggerFile("log.txt");
     //});
+
 });
 
 var app = builder.Build();
