@@ -49,6 +49,10 @@ app.Run();
 //verify all product images exists 
 //report categories without products
 //report  
+ConsoleApp GetDbContext(ConsoleApp app)
+{
+    return app; 
+}
 
 
 
