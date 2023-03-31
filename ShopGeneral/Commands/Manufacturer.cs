@@ -14,9 +14,9 @@ namespace TestConsole.Commands
         {
             //manufacturer sendreport
             [Command("sendreport", "sends report to manufacturer")]
-            public void sendReportToManufacturer(string msg = "4")
+            public void sendReportToManufacturer()
             {
-                Console.WriteLine(msg + "MANUFACTURER REPORT");
+                //Ha in dbcontext, köra klassen MailingService.
             }
         }
 }
