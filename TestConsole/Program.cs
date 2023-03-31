@@ -9,7 +9,8 @@ namespace TestConsole
             var app = ConsoleApp.Create(args);
 
 
-            app.AddCommands<Commands.Commands.Foo>();
+            //app.AddCommands<Commands.Commands.Foo>();
+            app.AddAllCommandType();
             app.Run();
 
         }

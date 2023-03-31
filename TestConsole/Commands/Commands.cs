@@ -8,24 +8,56 @@ namespace TestConsole.Commands
 {
     public class Commands
     {
-        public class Foo : ConsoleAppBase
+        public class Product : ConsoleAppBase
         {
 
             // echo --msg <String>
             [Command("echo", "--msg")]
-            public void Echo(string msg, int repeat = 3)
+            public void Echo(string msg  ="hejsant")
             {
-                
-                for (var i = 0; i < repeat; i++)
-                {
-                    Console.WriteLine(msg);
-                }
+                Console.WriteLine(msg);
             }
             //--sum <int x> <int y>
             [Command("--sum", "x, y")]
             public void Sum([Option(0)] int x, [Option(1)] int y)
             {
                 Console.WriteLine((x + y).ToString());
+            }
+
+            //product export --to=pricerunner
+            [Command("export --to = pricerunner", "Exports product to file.")]
+            public void productExport(string msg = "1")
+            {
+                Console.WriteLine(msg + "PRODUCTEXPORT");
+            }
+
+            //product verifyimage
+            [Command("verifyimage", "Displays if image exists.")]
+            public void verifyImage(string msg = "2")
+            {
+                Console.WriteLine(msg + "VERIFYIMAGE");
+            }
+        }
+
+        public class Category : ConsoleAppBase
+        {
+            
+
+            //category checkempty
+            [Command("checkempty", "Displays if category has products.")]
+            public void checkIfEmpty(string msg = "3")
+            {
+                Console.WriteLine(msg + "CHECKEMPTY");
+            }
+        }
+
+        public class Manufacturer : ConsoleAppBase
+        {
+            //manufacturer sendreport
+            [Command("sendreport", "sends report to manufacturer")]
+            public void sendReportToManufacturer(string msg = "4")
+            {
+                Console.WriteLine(msg + "MANUFACTURER REPORT");
             }
         }
     }
