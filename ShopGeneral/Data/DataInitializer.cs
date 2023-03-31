@@ -239,4 +239,9 @@ public class DataInitializer
         _context.SaveChanges();
     }
 
+    public ApplicationDbContext GetApplicationDbContext()
+    {
+        return _context;
+    }
+
 }
