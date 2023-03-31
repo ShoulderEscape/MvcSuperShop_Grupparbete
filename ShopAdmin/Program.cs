@@ -4,6 +4,9 @@ using Microsoft.Extensions.DependencyInjection;
 using ShopGeneral.Data;
 using ShopGeneral.Services;
 using Microsoft.EntityFrameworkCore;
+using ShopGeneral.CategoryValidator;
+using ConsoleAppFramework;
+using ShopGeneral.Commands;
 
 var builder = ConsoleApp.CreateBuilder(args);
 builder.ConfigureServices((ctx, services) =>
@@ -36,11 +39,12 @@ using (var scope = app.Services.CreateScope())
     dataInitializer.SeedData();
 }
 
-
 app.AddAllCommandType();
 app.Run();
 //generate prices to PriceRunner (JSON file)
 //verify all product images exists 
 //report categories without products
 //report  
+
+
 

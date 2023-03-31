@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
+using ShopGeneral.CategoryValidator;
+using ShopGeneral.Data;
+
 
 namespace TestConsole.Commands
 {
@@ -39,15 +43,24 @@ namespace TestConsole.Commands
             }
         }
 
-        public class Category : ConsoleAppBase
+        public class Kategori : ConsoleAppBase
         {
             
 
             //category checkempty
-            [Command("checkempty", "Displays if category has products.")]
-            public void checkIfEmpty(string msg = "3")
+            [Command("checkempty", "-")]
+            public void checkIfEmpty()
             {
-                Console.WriteLine(msg + "CHECKEMPTY");
+                var categoryValidator = new CategoryValidator();
+
+                ApplicationDbContext dbContext;
+
+                var list = new List<Category>();
+
+                //list = categoryValidator.RunValidor();
+
+                list.ForEach(c => Console.WriteLine(c.Name));
+
             }
         }
 
