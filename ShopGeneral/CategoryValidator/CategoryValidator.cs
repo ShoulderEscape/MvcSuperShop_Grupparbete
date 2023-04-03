@@ -31,8 +31,8 @@ namespace ShopGeneral.CategoryValidator
             {
                 File.Create(filename).Close();
             }
-               
-            File.AppendAllText(filename, str);
+            
+            File.WriteAllText(filename, str);
         }
         public string getfilename()
         {
