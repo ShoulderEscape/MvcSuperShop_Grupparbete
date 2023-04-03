@@ -11,7 +11,7 @@ namespace MvcSuperShop.CategoryValidatorTest
     public class CategoryValidatorTest
     {
         private ApplicationDbContext dbContext;
-        private CategoryValidator sut;
+        private Validator sut;
         [TestInitialize]
         public void initilizer()
         {
@@ -23,7 +23,7 @@ namespace MvcSuperShop.CategoryValidatorTest
                 .Options);
             dbContext.Database.EnsureCreated();
 
-            sut = new CategoryValidator();
+            sut = new Validator();
         }
         //public Validator sut = new Validator();
 
