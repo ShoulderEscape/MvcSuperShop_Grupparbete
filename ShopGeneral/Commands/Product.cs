@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Org.BouncyCastle.Asn1.X509;
+using ShopGeneral.Data;
 
 namespace ShopGeneral.Commands
 {
@@ -19,7 +17,14 @@ namespace ShopGeneral.Commands
         [Command("verifyimage", "Displays if image exists.")]
         public void verifyImage(string msg = "2")
         {
-            Console.WriteLine(msg + "VERIFYIMAGE");
+            Verifyproduct verifyproduct = new Verifyproduct();
+
+            var dbContext = Context.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+            Console.WriteLine("checking images...");
+
+            verifyproduct.ProductVerification(dbContext.Products);
+
+            Thread.Sleep(10000);
         }
     }
 }
