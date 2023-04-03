@@ -11,20 +11,19 @@ namespace ShopGeneral.CategoryValidator
     public class CategoryValidator
     {
         public CategoryValidator() { }
-        public List<Category> RunValidor(ApplicationDbContext dbContext)
+        public void RunValidor(IEnumerable<Category> categories, IEnumerable<Product> products)
         {
-            List<Category> categories = new List<Category>();
-            dbContext.Categories.ToList().ForEach( category=> {
-                if(!dbContext.Products.Any(product => product.Category == category))
+            List<Category> categoriesWithoutProducts = new List<Category>();
+            categories.ToList().ForEach( category=> {
+                if(products.Any(product => product.Category == category))
                 {
-                    categories.Add(category);
+                    categoriesWithoutProducts.Add(category);
                 }      
             });
             string str = "";
-            categories.ForEach(category => str += $"{category.Name}\n");
+            categoriesWithoutProducts.ForEach(category => str += $"{category.Name}\n");
 
-            //savefile(str,getfilename());
-            return categories;
+            savefile(str,getfilename());
         }
         public void savefile(string str, string filename)
         {
