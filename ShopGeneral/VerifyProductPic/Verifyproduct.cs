@@ -10,14 +10,17 @@ class Verifyproduct
     public async void  ProductVerification (IEnumerable <ShopGeneral.Data.Product> products)
     {
         var client = new HttpClient();
+        var i = 0;
 
         foreach (var product in products) 
         {
+            i++;
             try
             {
                 var response = await client.GetAsync(product.ImageUrl);
                 response.EnsureSuccessStatusCode();
 
+                Console.WriteLine($"bild {i} godkänd");
                 //Console.WriteLine($"HTTP error: worked flawlessly");
                 //var missingImagesDir = ".\\outfiles\\products\\";   
                 //var missingImagesPath = Path.Combine(missingImagesDir, $"missingimages-{DateTime.Now:yyyyMMdd}.txt");
