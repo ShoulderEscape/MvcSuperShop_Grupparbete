@@ -7,7 +7,7 @@ namespace ShopGeneral.Mailing
     public class MailingService
     {
 
-        public void MailAllManifactuers(IEnumerable<Manufacturer> manufacturers) => manufacturers.ToList().ForEach(m => { Mail(m); });
+        public void MailAllManufacturers(IEnumerable<Manufacturer> manufacturers) => manufacturers.ToList().ForEach(m => { Mail(m); });
 
         private void Mail(Manufacturer manufacturer)
         {

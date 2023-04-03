@@ -14,11 +14,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Grupparbete_TestArea", "Gru
 		{98E606CB-C422-4485-A827-7949E7E9F451} = {98E606CB-C422-4485-A827-7949E7E9F451}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "TestConsole\TestConsole.csproj", "{D1C45099-3E95-429C-8918-EE6FEC3046E1}"
-	ProjectSection(ProjectDependencies) = postProject
-		{98E606CB-C422-4485-A827-7949E7E9F451} = {98E606CB-C422-4485-A827-7949E7E9F451}
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,10 +36,6 @@ Global
 		{31AD9363-C471-4651-8CB6-00AEDE480A59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31AD9363-C471-4651-8CB6-00AEDE480A59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31AD9363-C471-4651-8CB6-00AEDE480A59}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D1C45099-3E95-429C-8918-EE6FEC3046E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D1C45099-3E95-429C-8918-EE6FEC3046E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D1C45099-3E95-429C-8918-EE6FEC3046E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D1C45099-3E95-429C-8918-EE6FEC3046E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
