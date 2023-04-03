@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace ShopGeneral.CategoryValidator
 {
-    public class CategoryValidator
+    public class Validator
     {
-        public CategoryValidator() { }
+        public Validator() { }
         public void RunValidor(IEnumerable<Category> categories, IEnumerable<Product> products)
         {
             List<Category> categoriesWithoutProducts = new List<Category>();

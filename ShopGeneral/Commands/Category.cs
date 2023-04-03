@@ -1,9 +1,11 @@
-﻿using ShopGeneral.Data;
+﻿using Microsoft.Extensions.DependencyInjection;
+using ShopGeneral.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ShopGeneral.CategoryValidator;
 
 namespace ShopGeneral.Commands
 {
@@ -13,15 +15,14 @@ namespace ShopGeneral.Commands
         [Command("checkempty", "-")]
         public void checkIfEmpty()
         {
-            //var categoryValidator = new CategoryValidator();
+            var validator = new Validator();
 
-            ApplicationDbContext dbContext;
 
-            var list = new List<Category>();
+            ApplicationDbContext dbContext = Context.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
-            //list = categoryValidator.RunValidor();
 
-            list.ForEach(c => Console.WriteLine(c.Name));
+            validator.RunValidor(dbContext.Categories, dbContext.Products);
+
 
         }
     }
