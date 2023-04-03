@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 class Verifyproduct
 {
-    static async Task Main(string[] args)
+    public void ProducVerification  
     {
         var client = new HttpClient();
 
