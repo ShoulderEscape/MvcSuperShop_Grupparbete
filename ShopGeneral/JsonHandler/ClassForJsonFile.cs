@@ -10,9 +10,10 @@ namespace ShopGeneral.JsonHandler
 {
     public class ClassForJsonFile
     {
-        public List<TestProduct> testProducts { get; set; } = new List<TestProduct>();
+        public List<TestProduct> testProducts { get; set; }
         public int total { get; set; }
         public int skip { get; set; }
         public int limit { get; set; }
     }
+
 }

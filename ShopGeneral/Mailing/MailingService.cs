@@ -7,10 +7,14 @@ namespace ShopGeneral.Mailing
     public class MailingService
     {
 
+
         public void MailAllManufacturers(IEnumerable<Manufacturer> manufacturers) => manufacturers.ToList().ForEach(m => { Mail(m); });
 
         private void Mail(Manufacturer manufacturer)
         {
+
+
+
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress("Emmitt Macejkovic", "emmitt.macejkovic43@ethereal.email"));
             message.To.Add(new MailboxAddress(manufacturer.Name, manufacturer.EmailReport.Replace(" ", "")));
