@@ -11,7 +11,6 @@ public class ProductServiceModel
     public string ImageUrl { get; set; }
 
     public int Price { get; set; }
-    public decimal discountPercentage { get; set; }
     public int BasePrice { get; set; }
     public DateTime AddedUtc { get; set; }
 
