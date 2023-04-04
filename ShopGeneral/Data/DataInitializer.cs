@@ -136,6 +136,8 @@ public class DataInitializer
 
             product.Manufacturer = manufacturer;
 
+            product.discountPercentage = 0.0m;
+
             product.BasePrice = rand.Next(10, 600) * 1000;
 
             product.AddedUtc = DateTime.Now.AddDays(-rand.Next(1, 100)).AddSeconds(-rand.Next(1, 100000));

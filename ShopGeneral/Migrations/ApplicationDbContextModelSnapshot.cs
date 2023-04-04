@@ -339,6 +339,9 @@ namespace ShopGeneral.Migrations
                     b.Property<DateTime>("AddedUtc")
                         .HasColumnType("datetime2");
 
+                    b.Property<decimal>("discountPercentage")
+                        .HasColumnType("decimal");
+
                     b.Property<int>("BasePrice")
                         .HasColumnType("int");
 

@@ -250,6 +250,7 @@ namespace ShopGeneral.Migrations
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
                     ManufacturerId = table.Column<int>(type: "int", nullable: false),
+                    discountPercentage = table.Column<decimal>(type: "decimal", nullable: false),
                     BasePrice = table.Column<int>(type: "int", nullable: false),
                     AddedUtc = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ImageUrl = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
