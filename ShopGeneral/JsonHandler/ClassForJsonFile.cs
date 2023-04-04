@@ -15,4 +15,5 @@ namespace ShopGeneral.JsonHandler
         public int skip { get; set; }
         public int limit { get; set; }
     }
+
 }
