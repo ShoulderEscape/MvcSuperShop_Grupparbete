@@ -15,25 +15,44 @@ namespace ShopGeneral.JsonHandler
     public class HandleJsonFile
     {
 
-        public void SetTestProductToDataBaseValues(IEnumerable<Product> products)
+        public void SetTestProductToDataBaseValues(IEnumerable<Product> products, IEnumerable<Category> categories, IEnumerable<Manufacturer> manufacturers)
         {
             Faker faker = new Faker();
             List<TestProduct> testProducts = new List<TestProduct>();
             Random rand = new Random();
             ClassForJsonFile ReadyFile = new ClassForJsonFile();
+
+            string categoryname = "";
+            string Brand = "";
+
             foreach (var product in products)
             {
+                foreach(var cate in categories)
+                {
+                    if(product.Category.Id == cate.Id)
+                    {
+                        categoryname = cate.Name;
+                    }
+                }
+                foreach(var manu in manufacturers)
+                {
+                    if(product.Manufacturer.Id == manu.Id)
+                    {
+                        Brand = manu.Name;
+                    }
+                }
+
                 testProducts.Add(new TestProduct()
                 {
                     Id = product.Id,
                     title = product.Name,
-                    description = faker.Lorem.ToString(),
+                    description = faker.Lorem.Lines(),
                     price = product.BasePrice,
                     discountPercentage = 0.0m,
                     rating = rand.Next(0, 6),
                     stock = rand.Next(0, 100),
-                    brand = product.Manufacturer.Name,
-                    category = product.Category.Name,
+                    brand = Brand,
+                    category = categoryname,
                     image = product.ImageUrl
 
                 });
@@ -44,7 +63,12 @@ namespace ShopGeneral.JsonHandler
             ReadyFile.limit = 0;
 
             string json = JsonSerializer.Serialize(ReadyFile);
-            File.WriteAllText(".\\outfile\\pricerunner\\" + DateTime.Now + ".txt", json);
+            using (StreamWriter sw = new StreamWriter($".\\outfiles\\pricerunner\\{DateTime.Now.Date.ToString("d")}.txt"))
+            {
+                sw.WriteLine(json);
+            }
+
+
         }
     }
 }
