@@ -14,39 +14,37 @@ namespace ShopGeneral.JsonHandler
 {
     public class HandleJsonFile
     {
-        public void SetProductInJsonFile(IEnumerator<Product> product)
+
+        public void SetTestProductToDataBaseValues(IEnumerable<Product> products)
         {
-            
-            string json = JsonSerializer.Serialize(product);
+            Faker faker = new Faker();
+            List<TestProduct> testProducts = new List<TestProduct>();
+            Random rand = new Random();
+            ClassForJsonFile ReadyFile = new ClassForJsonFile();
+            foreach (var product in products)
+            {
+                testProducts.Add(new TestProduct()
+                {
+                    Id = product.Id,
+                    title = product.Name,
+                    description = faker.Lorem.ToString(),
+                    price = product.BasePrice,
+                    discountPercentage = 0.0m,
+                    rating = rand.Next(0, 6),
+                    stock = rand.Next(0, 100),
+                    brand = product.Manufacturer.Name,
+                    category = product.Category.Name,
+                    image = product.ImageUrl
 
-            File.WriteAllText(@"C:\Users\isakz\OneDrive\Skrivbord\TUC SkolMap\Programmering fördjupning\MvcSuperShop_Grupparbete\ShopGeneral\JsonHandler\ProductToAdd.json", json);
+                });
+            }
+            ReadyFile.testProducts = testProducts;
+            ReadyFile.total = testProducts.Count;
+            ReadyFile.skip = 0;
+            ReadyFile.limit = 0;
 
-
-            //Console.WriteLine("input command");
-            //string input = Console.ReadLine();
-
-
-
-            //if(input == "product export --to=pricerunner")
-            //{
-            //    TestProduct product1 = new TestProduct()
-            //    {
-            //        Id = 1,
-            //        title = "Iphone 9",
-            //        description = "Ann apple mobile which is nothing like apple",
-            //        price = 599,
-            //        discountPercentage = new decimal(12.42),
-            //        rating = new decimal(4.69),
-            //        stock = 45,
-            //        brand = "Apple",
-            //        category = "smartphones",
-            //        images = new List<string>() { "fsf", "hmhmh" }
-            //    };
-            //    string json = JsonSerializer.Serialize(product1);
-            //    File.WriteAllText(@"C:\Users\isakz\OneDrive\Skrivbord\TUC SkolMap\Programmering fördjupning\MvcSuperShop_Grupparbete\ShopGeneral\JsonHandler\ProductToAdd.json", json);
-            //}
+            string json = JsonSerializer.Serialize(ReadyFile);
+            File.WriteAllText(".\\outfile\\pricerunner\\" + DateTime.Now + ".txt", json);
         }
-
-
     }
 }
