@@ -10,7 +10,6 @@ namespace ShopGeneral.JsonHandler
 {
     public class TestProduct
     {
-        public List<Product> Products { get; set; }
 
         public int Total { get; set; } = 0;
         public int Id { get; set; }
