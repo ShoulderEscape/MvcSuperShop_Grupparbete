@@ -6,8 +6,16 @@ namespace ShopGeneral.Mailing
 {
     public class MailingService
     {
-        public void Mail(Manufacturer manufacturer)
+
+        public void MailAllManufacturers() 
         {
+        }
+
+        public async void Mail(Manufacturer manufacturer)
+        {
+
+
+
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress("Broderick Beatty", "broderick.beatty16@ethereal.email"));
             message.To.Add(new MailboxAddress(manufacturer.Name, manufacturer.EmailReport));
