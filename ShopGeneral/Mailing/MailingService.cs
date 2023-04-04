@@ -7,18 +7,17 @@ namespace ShopGeneral.Mailing
     public class MailingService
     {
 
-        public void MailAllManufacturers() 
-        {
-        }
 
-        public async void Mail(Manufacturer manufacturer)
+        public void MailAllManufacturers(IEnumerable<Manufacturer> manufacturers) => manufacturers.ToList().ForEach(m => { Mail(m); });
+
+        private void Mail(Manufacturer manufacturer)
         {
 
 
 
             var message = new MimeMessage();
-            message.From.Add(new MailboxAddress("Broderick Beatty", "broderick.beatty16@ethereal.email"));
-            message.To.Add(new MailboxAddress(manufacturer.Name, manufacturer.EmailReport));
+            message.From.Add(new MailboxAddress("Emmitt Macejkovic", "emmitt.macejkovic43@ethereal.email"));
+            message.To.Add(new MailboxAddress(manufacturer.Name, manufacturer.EmailReport.Replace(" ", "")));
             message.Subject = "How you doin'?";
 
             message.Body = new TextPart("plain")
@@ -35,7 +34,7 @@ I just wanted to let you know that Monica and I were going to go play some paint
                 client.Connect("smtp.ethereal.email", 587, false);
 
                 // Note: only needed if the SMTP server requires authentication
-                client.Authenticate("broderick.beatty16@ethereal.email", "KJ5MahY8KMpT6xNE4f");
+                client.Authenticate("emmitt.macejkovic43@ethereal.email", "y7caa1nUNyuVsMunF1");
 
                 client.Send(message);
                 client.Disconnect(true);
