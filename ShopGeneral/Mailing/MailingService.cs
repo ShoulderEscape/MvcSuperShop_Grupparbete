@@ -4,16 +4,13 @@ using ShopGeneral.Data;
 
 namespace ShopGeneral.Mailing
 {
-    public class MailingService
+    public class MailingService : IMailingService
     {
-
 
         public void MailAllManufacturers(IEnumerable<Manufacturer> manufacturers) => manufacturers.ToList().ForEach(m => { Mail(m); });
 
         private void Mail(Manufacturer manufacturer)
         {
-
-
 
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress("Emmitt Macejkovic", "emmitt.macejkovic43@ethereal.email"));
