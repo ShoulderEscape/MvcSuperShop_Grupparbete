@@ -15,7 +15,7 @@ namespace TestConsole.Commands
         public class Manufacturer : ConsoleAppBase
         {
             MailingService mailingService = new MailingService();
-
+            
             //manufacturer sendreport
             [Command("sendreport", "sends report to manufacturer")]
             public void sendReportToManufacturer()
