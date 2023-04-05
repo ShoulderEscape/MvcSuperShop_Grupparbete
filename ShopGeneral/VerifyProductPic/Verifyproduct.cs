@@ -24,7 +24,7 @@ class Verifyproduct
                 //Console.WriteLine($"HTTP error: worked flawlessly");
                 //var missingImagesDir = ".\\outfiles\\products\\";   
                 //var missingImagesPath = Path.Combine(missingImagesDir, $"missingimages-{DateTime.Now:yyyyMMdd}.txt");
-                //var errorMessage = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss}: Product {product.Id} missing image: {product.ImageUrl}";
+                //var errorMessage = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss}: PorductCommand {product.Id} missing image: {product.ImageUrl}";
                 //File.AppendAllText(missingImagesPath, errorMessage + Environment.NewLine);
             }
             catch (HttpRequestException e)
@@ -32,7 +32,7 @@ class Verifyproduct
                 Console.WriteLine($"HTTP error: {e.Message}");
                 var missingImagesDir = ".\\outfiles\\products\\";
                 var missingImagesPath = Path.Combine(missingImagesDir, $"missingimages-{DateTime.Now:yyyyMMdd}.txt");
-                var errorMessage = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss}: Product {product.Id} missing image: {product.ImageUrl}";
+                var errorMessage = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss}: PorductCommand {product.Id} missing image: {product.ImageUrl}";
                 File.AppendAllText(missingImagesPath, errorMessage + Environment.NewLine);
             }
         }
