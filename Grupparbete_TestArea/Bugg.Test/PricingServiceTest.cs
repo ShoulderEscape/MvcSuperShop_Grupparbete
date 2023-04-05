@@ -40,7 +40,7 @@ namespace Grupparbete_TestArea.Bugg.Test
             products.Add(new ProductServiceModel
             {
                 BasePrice = 1500,
-                Price = 1200,
+                Price = 1500,
                 Name = "Test",
                 CategoryName = "Test",
                 ManufacturerName = "Test"
