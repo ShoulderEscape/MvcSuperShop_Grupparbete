@@ -13,7 +13,7 @@ namespace ShopGeneral.Mailing
         {
 
             var message = new MimeMessage();
-            message.From.Add(new MailboxAddress("Emmitt Macejkovic", "emmitt.macejkovic43@ethereal.email"));
+            message.From.Add(new MailboxAddress("Noemi Berge", "noemi.berge@ethereal.email"));
             message.To.Add(new MailboxAddress(manufacturer.Name, manufacturer.EmailReport.Replace(" ", "")));
             message.Subject = "How you doin'?";
 
@@ -31,7 +31,7 @@ I just wanted to let you know that Monica and I were going to go play some paint
                 client.Connect("smtp.ethereal.email", 587, false);
 
                 // Note: only needed if the SMTP server requires authentication
-                client.Authenticate("emmitt.macejkovic43@ethereal.email", "y7caa1nUNyuVsMunF1");
+                client.Authenticate("noemi.berge@ethereal.email", "sRQVzTvGGJkUNDZTYU");
 
                 client.Send(message);
                 client.Disconnect(true);

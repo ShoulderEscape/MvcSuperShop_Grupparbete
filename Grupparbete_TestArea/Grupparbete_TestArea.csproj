@@ -21,4 +21,8 @@
     <ProjectReference Include="..\ShopGeneral\ShopGeneral.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="BuggTests\" />
+  </ItemGroup>
+
 </Project>

@@ -10,7 +10,7 @@ namespace ShopGeneral.Commands
     {
         //product export --to=pricerunner
         [Command("export", "Exports product to file.")]
-        public void productExport([Option(0)] string to)
+        public async void productExport([Option(0)]  string to)
         {
 
             if(to == "--to=pricerunner")
@@ -20,20 +20,24 @@ namespace ShopGeneral.Commands
 
                 file.SetTestProductToDataBaseValues(dbcontext.Products, dbcontext.Categories, dbcontext.Manufacturers);
             }
+            await Console.Out.WriteLineAsync("EXPORT FUNKAR");
         }
 
         //product verifyimage
         [Command("verifyimage", "Displays if image exists.")]
-        public void verifyImage(string msg = "2")
+        public async void verifyImage()
         {
             Verifyproduct verifyproduct = new Verifyproduct();
 
             var dbContext = Context.ServiceProvider.GetRequiredService<ApplicationDbContext>();
             Console.WriteLine("checking images...");
 
+            Console.WriteLine("VERIFY IMAGE FUNKAR");
+
             verifyproduct.ProductVerification(dbContext.Products);
 
             Thread.Sleep(10000);
+            
         }
     }
 }
