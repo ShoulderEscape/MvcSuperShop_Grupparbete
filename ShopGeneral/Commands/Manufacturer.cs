@@ -18,13 +18,15 @@ namespace TestConsole.Commands
 
             //manufacturer sendreport
             [Command("sendreport", "sends report to manufacturer")]
-            public void sendReportToManufacturer()
+            public async void sendReportToManufacturer()
             {
             //Ha in dbcontext, köra klassen MailingService.
 
             var dbContext = this.Context.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+            Console.WriteLine("MAILREPORT FUNKAR");
 
             mailingService.MailAllManufacturers(dbContext.Manufacturers);
+            
 
             }
         }

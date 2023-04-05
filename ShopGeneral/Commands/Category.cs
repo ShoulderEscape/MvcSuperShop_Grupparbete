@@ -12,8 +12,8 @@ namespace ShopGeneral.Commands
     public class Kategori : ConsoleAppBase
     {
         //category checkempty
-        [Command("checkempty", "-")]
-        public void checkIfEmpty()
+        [Command("checkempty", "Checking if categorys are emtpty.")]
+        public async void checkIfEmpty()
         {
             var validator = new Validator();
 
@@ -22,6 +22,7 @@ namespace ShopGeneral.Commands
 
 
             validator.RunValidor(dbContext.Categories, dbContext.Products);
+            await Console.Out.WriteLineAsync("CHECKEMPTY FUNKAR");
 
 
         }
