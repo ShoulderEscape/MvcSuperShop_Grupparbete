@@ -143,6 +143,7 @@ namespace MvcSuperShop.CategoryValidatorTest
 
 
             //Assert.AreEqual(1, sut.RunValidor(dbContext.Categories, dbContext.Products).Count);
+
         }
     }
 }

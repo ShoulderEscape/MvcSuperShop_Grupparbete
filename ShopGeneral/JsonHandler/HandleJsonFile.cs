@@ -14,13 +14,13 @@ namespace ShopGeneral.JsonHandler
 {
     public class HandleJsonFile
     {
+        public ClassForJsonFile ReadyFile = new ClassForJsonFile();
 
         public void SetTestProductToDataBaseValues(IEnumerable<Product> products, IEnumerable<Category> categories, IEnumerable<Manufacturer> manufacturers)
         {
             Faker faker = new Faker();
             List<TestProduct> testProducts = new List<TestProduct>();
             Random rand = new Random();
-            ClassForJsonFile ReadyFile = new ClassForJsonFile();
 
             string categoryname = "";
             string Brand = "";
@@ -70,5 +70,6 @@ namespace ShopGeneral.JsonHandler
 
 
         }
+
     }
 }
