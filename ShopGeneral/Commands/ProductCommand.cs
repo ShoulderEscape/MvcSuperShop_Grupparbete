@@ -33,7 +33,7 @@ namespace ShopGeneral.Commands
 
         //product verifyimage
         [Command("verifyimage", "Displays if image exists.")]
-        public async void VerifyImage()
+        public void VerifyImage()
         {
             Verifyproduct verifyproduct = new Verifyproduct();
 
@@ -41,10 +41,10 @@ namespace ShopGeneral.Commands
                         
             Console.WriteLine("checking images...");
 
-            verifyproduct.ProductVerification(dbContext.Products);
+            verifyproduct.VerifyproductMain(dbContext.Products);
 
-            Thread.Sleep(10000);
-            
+           
         }
     }
 }
+
