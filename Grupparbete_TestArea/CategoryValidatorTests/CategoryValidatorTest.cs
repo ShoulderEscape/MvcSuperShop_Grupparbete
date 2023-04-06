@@ -65,7 +65,7 @@ namespace MvcSuperShop.CategoryValidatorTest
 
 
 
-           // Assert.AreEqual(expectedValue, sut.RunValidator(categories, products));
+           Assert.AreEqual(expectedValue, sut.RunValidator(categories, products));
 
 
 
@@ -125,7 +125,7 @@ namespace MvcSuperShop.CategoryValidatorTest
             string expectedValue = $"{categories[1].Name}\n";
 
 
-           // Assert.AreEqual(expectedValue, sut.RunValidator(categories, products));
+           Assert.AreEqual(expectedValue, sut.RunValidator(categories, products));
 
         }
         
