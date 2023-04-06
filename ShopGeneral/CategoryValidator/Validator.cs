@@ -8,31 +8,38 @@ using System.Threading.Tasks;
 
 namespace ShopGeneral.CategoryValidator
 {
-    public class Validator
+    public class Validator : IValidator
     {
         public Validator() { }
-        public void RunValidor(IEnumerable<Category> categories, IEnumerable<Product> products)
+        public void ValidateCategoryData(IEnumerable<Category> categories, IEnumerable<Product> products)
+        {
+            savefile(RunValidator(categories, products), getfilename());
+        }
+        public string RunValidator(IEnumerable<Category> categories, IEnumerable<Product> products)
         {
             List<Category> categoriesWithoutProducts = new List<Category>();
             categories.ToList().ForEach( category=> {
-                if(products.Any(product => product.Category == category))
+                if(!products.Any(product => product.Category == category))
                 {
                     categoriesWithoutProducts.Add(category);
                 }      
             });
             string str = "";
             categoriesWithoutProducts.ForEach(category => str += $"{category.Name}\n");
+            return str;
 
-            savefile(str,getfilename());
         }
+        
         public void savefile(string str, string filename)
         {
             if (!File.Exists(filename))
             {
                 File.Create(filename).Close();
             }
-               
-            File.AppendAllText(filename, str);
+            using (StreamWriter sw = new StreamWriter(filename))
+            {
+                sw.WriteLine(str);
+            }
         }
         public string getfilename()
         {
