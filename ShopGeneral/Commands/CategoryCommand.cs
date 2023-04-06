@@ -23,7 +23,7 @@ namespace ShopGeneral.Commands
 
             Console.WriteLine("Validating that all categories contains products");
 
-           // validator.ValidateCategoryData(dbContext.Categories, dbContext.Products);
+            validator.ValidateCategoryData(dbContext.Categories, dbContext.Products);
             
             Console.WriteLine("DONE");
 
