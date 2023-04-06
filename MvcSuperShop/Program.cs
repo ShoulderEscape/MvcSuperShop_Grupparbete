@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MvcSuperShop.Infrastructure.Profiles;
 using ShopGeneral.Data;
+using ShopGeneral.JsonHandler;
 using ShopGeneral.Services;
 
 var builder = WebApplication.CreateBuilder(args);

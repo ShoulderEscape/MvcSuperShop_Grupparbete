@@ -328,7 +328,7 @@ namespace ShopGeneral.Migrations
                     b.ToTable("Manufacturers");
                 });
 
-            modelBuilder.Entity("ShopGeneral.Data.Product", b =>
+            modelBuilder.Entity("ShopGeneral.Data.ProductCommand", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -450,7 +450,7 @@ namespace ShopGeneral.Migrations
                         .HasForeignKey("AgreementId");
                 });
 
-            modelBuilder.Entity("ShopGeneral.Data.Product", b =>
+            modelBuilder.Entity("ShopGeneral.Data.ProductCommand", b =>
                 {
                     b.HasOne("ShopGeneral.Data.Category", "Category")
                         .WithMany()
