@@ -5,7 +5,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using ShopGeneral.Data;
 
-class Verifyproduct
+class Verifyproduct : IVerifyproductValidator
 {
     public async void  ProductVerification (IEnumerable <ShopGeneral.Data.Product> products)
     {

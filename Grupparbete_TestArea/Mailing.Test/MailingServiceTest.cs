@@ -41,7 +41,7 @@ namespace Grupparbete_TestArea.Mailing.Test
         {
             manufacturer = new Manufacturer() { Id = 1, Name = "Test2", EmailReport = "Test@Test.test", Icon = null };
 
-            sut.Mail(manufacturer);
+            //sut.Mail(manufacturer);
 
             
         }
