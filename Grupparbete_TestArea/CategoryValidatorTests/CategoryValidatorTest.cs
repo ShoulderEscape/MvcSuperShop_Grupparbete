@@ -63,7 +63,10 @@ namespace MvcSuperShop.CategoryValidatorTest
             });
             string expectedValue = "";
 
+
+
             Assert.AreEqual(expectedValue, sut.RunValidator(categories, products));
+
 
 
         }
@@ -147,7 +150,9 @@ namespace MvcSuperShop.CategoryValidatorTest
             if (day.Length == 1) day = 0 + day;
             string filename = $".\\outfiles\\category\\missingproducts-{now.Year}{month}{day}.txt";
 
+
             Assert.AreEqual(sut.getfilename(), filename);
+
         }
     }
 }

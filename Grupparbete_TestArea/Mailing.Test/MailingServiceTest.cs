@@ -49,7 +49,9 @@ namespace Grupparbete_TestArea.Mailing.Test
 
             moq.Object.MailAllManufacturers(dbContext.Manufacturers);
 
+
             moq.Verify(m => m.MailAllManufacturers(dbContext.Manufacturers),Times.Once());
+
 
         }
 
