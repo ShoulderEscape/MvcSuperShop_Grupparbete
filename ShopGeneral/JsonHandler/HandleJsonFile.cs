@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace ShopGeneral.JsonHandler
 {
-    public class HandleJsonFile
+    public class HandleJsonFile : IHandleJsonFile
     {
         public ClassForJsonFile ReadyFile = new ClassForJsonFile();
 
@@ -62,13 +62,21 @@ namespace ShopGeneral.JsonHandler
             ReadyFile.skip = 0;
             ReadyFile.limit = 0;
 
+        }
+
+        public void SaveDownDataToFile()
+        {
             string json = JsonSerializer.Serialize(ReadyFile);
             using (StreamWriter sw = new StreamWriter($".\\outfiles\\pricerunner\\{DateTime.Now.Date.ToString("d")}.txt"))
             {
                 sw.WriteLine(json);
             }
+        }
 
-
+        public void RunBothMethods(IEnumerable<Product> products, IEnumerable<Category> categories, IEnumerable<Manufacturer> manufacturers)
+        {
+            SetTestProductToDataBaseValues(products, categories, manufacturers);
+            SaveDownDataToFile();
         }
 
     }
