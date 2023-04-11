@@ -9,6 +9,7 @@ using ShopGeneral.CategoryValidator;
 
 namespace ShopGeneral.Commands
 {
+
     [Command("category")]
     public class CategoryCommand : ConsoleAppBase
     {
@@ -20,6 +21,9 @@ namespace ShopGeneral.Commands
 
 
             ApplicationDbContext dbContext = Context.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+
+
+            validator.RunValidor(dbContext.Categories, dbContext.Products);
 
             Console.WriteLine("Validating that all categories contains products");
 

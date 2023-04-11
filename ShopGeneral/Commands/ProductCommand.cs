@@ -8,6 +8,7 @@ namespace ShopGeneral.Commands
 {
 
 
+
     [Command("product")]
     public class PorductCommand : ConsoleAppBase
     {
@@ -20,6 +21,7 @@ namespace ShopGeneral.Commands
             Console.WriteLine("Creating file for Pricerunner...");
 
             if (to == "--to=pricerunner")
+            
             {
                 HandleJsonFile file = new HandleJsonFile();
                 var dbcontext = Context.ServiceProvider.GetRequiredService<ApplicationDbContext>();
@@ -33,11 +35,13 @@ namespace ShopGeneral.Commands
 
         //product verifyimage
         [Command("verifyimage", "Displays if image exists.")]
+
         public void VerifyImage()
         {
             Verifyproduct verifyproduct = new Verifyproduct();
 
             var dbContext = Context.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+
                         
             Console.WriteLine("checking images...");
 
@@ -47,4 +51,3 @@ namespace ShopGeneral.Commands
         }
     }
 }
-

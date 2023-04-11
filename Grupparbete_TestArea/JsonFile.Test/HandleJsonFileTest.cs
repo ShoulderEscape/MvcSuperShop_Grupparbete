@@ -1,4 +1,5 @@
 ﻿using Org.BouncyCastle.Security;
+using Org.BouncyCastle.Utilities;
 using ShopGeneral.Commands;
 using ShopGeneral.Data;
 using ShopGeneral.JsonHandler;
@@ -41,6 +42,15 @@ namespace Grupparbete_TestArea.JsonFile.Test
             Assert.AreEqual(3, sut.ReadyFile.testProducts.Count());
         }
 
-        
+        [TestMethod]
+        public void Check_if_method_writetofile_is_called()
+        {
+            Moq.Mock<IHandleJsonFile> Fake = new Moq.Mock<IHandleJsonFile>();
+
+            Fake.Object.SaveDownDataToFile();
+
+            Fake.Verify(p => p.SaveDownDataToFile(),Moq.Times.Once());
+
+        }
     }
 }
