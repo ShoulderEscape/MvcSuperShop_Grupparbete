@@ -12,20 +12,27 @@ using ShopGeneral.Mailing;
 
 namespace TestConsole.Commands
 {
-        public class Manufacturer : ConsoleAppBase
+
+        [Command("manufacturer")]
+        public class ManufacturerCommand : ConsoleAppBase
         {
             MailingService mailingService = new MailingService();
-
+            
             //manufacturer sendreport
             [Command("sendreport", "sends report to manufacturer")]
             public void sendReportToManufacturer()
             {
-            //Ha in dbcontext, köra klassen MailingService.
 
+
+            //Ha in dbcontext, köra klassen MailingService.
             var dbContext = this.Context.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+
+            Console.WriteLine("Sending mails...");
 
             mailingService.MailAllManufacturers(dbContext.Manufacturers);
 
+            Console.WriteLine("Email sent to all manufacturers");
+            
             }
         }
 }

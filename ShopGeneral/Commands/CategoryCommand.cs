@@ -9,11 +9,13 @@ using ShopGeneral.CategoryValidator;
 
 namespace ShopGeneral.Commands
 {
-    public class Kategori : ConsoleAppBase
+
+    [Command("category")]
+    public class CategoryCommand : ConsoleAppBase
     {
         //category checkempty
-        [Command("checkempty", "-")]
-        public void checkIfEmpty()
+        [Command("checkempty", "Checking if categorys are emtpty.")]
+        public async void checkIfEmpty()
         {
             var validator = new Validator();
 
@@ -22,6 +24,12 @@ namespace ShopGeneral.Commands
 
 
             validator.RunValidor(dbContext.Categories, dbContext.Products);
+
+            Console.WriteLine("Validating that all categories contains products");
+
+            validator.ValidateCategoryData(dbContext.Categories, dbContext.Products);
+            
+            Console.WriteLine("DONE");
 
 
         }

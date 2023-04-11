@@ -6,34 +6,48 @@ using System.Runtime.InteropServices;
 
 namespace ShopGeneral.Commands
 {
-    public class Product : ConsoleAppBase
+
+
+
+    [Command("product")]
+    public class PorductCommand : ConsoleAppBase
     {
+
         //product export --to=pricerunner
         [Command("export", "Exports product to file.")]
-        public void productExport([Option(0)] string to)
+        public void ProductExport([Option(0)]  string to)
         {
 
-            if(to == "--to=pricerunner")
+            Console.WriteLine("Creating file for Pricerunner...");
+
+            if (to == "--to=pricerunner")
+            
             {
                 HandleJsonFile file = new HandleJsonFile();
                 var dbcontext = Context.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
-                file.RunBothMethods(dbcontext.Products, dbcontext.Categories, dbcontext.Manufacturers);
+                file.SetTestProductToDataBaseValues(dbcontext.Products, dbcontext.Categories, dbcontext.Manufacturers);
             }
+
+            Console.WriteLine("DONE");
+            
         }
 
         //product verifyimage
         [Command("verifyimage", "Displays if image exists.")]
-        public void verifyImage(string msg = "2")
+
+        public void VerifyImage()
         {
             Verifyproduct verifyproduct = new Verifyproduct();
 
             var dbContext = Context.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+
+                        
             Console.WriteLine("checking images...");
 
-            verifyproduct.ProductVerification(dbContext.Products);
+            verifyproduct.VerifyproductMain(dbContext.Products);
 
-            Thread.Sleep(10000);
+           
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using Microsoft.Data.Sqlite;
+﻿using MailKit;
+using MailKit.Net.Smtp;
+using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Moq;
 using ShopGeneral.Data;
@@ -16,8 +18,6 @@ namespace Grupparbete_TestArea.Mailing.Test
     public class MailingServiceTest
     {
         private ApplicationDbContext dbContext;
-        private MailingService sut;
-        //private Moq.Mock sut;
 
         [TestInitialize]
         public void Initializ() 
@@ -32,45 +32,28 @@ namespace Grupparbete_TestArea.Mailing.Test
 
             dbContext.Manufacturers.AddRange(new[] 
             { 
-                new Manufacturer() { Id=1, EmailReport="Test@Test.se", Icon="", Name="MrX" },
+                new Manufacturer() { Id = 1, EmailReport="Test@Test.se", Icon="", Name="MrX" },
                 new Manufacturer() { Id = 2, EmailReport = "Test@Test.com", Icon = "", Name = "MrY" },
                 new Manufacturer() { Id = 3, EmailReport = "Test@Test.net", Icon = "", Name = "MrZ" }
             });
+
+            dbContext.SaveChanges();
 
         }
 
 
         [TestMethod]
-        public void Test_To_Send_Mail() 
+        public void TestToSendMail()
         {
-            var hej = new { product = new { hej = "hej" } };
+            var moq = new Moq.Mock<IMailingService>();
+
+            moq.Object.MailAllManufacturers(dbContext.Manufacturers);
+
+
+            moq.Verify(m => m.MailAllManufacturers(dbContext.Manufacturers),Times.Once());
+
+
         }
-
-
-
-        //[TestMethod]
-        //public void TestToSendMail()
-        //{
-        //    manufacturer = new Manufacturer() { Id = 1, Name = "Test", EmailReport = "Test@Test.test", Icon = null };
-        //    var moq = new Moq.Mock<MailingService>();
-        //    //moq.Setup(m => m.Mail(It.IsAny<Manufacturer>()));
-
-        //    //moq.Object.Mail(manufacturer);
-
-        //    moq.Verify(m => m.Mail(manufacturer), Times.Exactly(3));
-        //    //moq.VerifyAll();
-
-        //}
-
-        //[TestMethod]
-        //public void TestToSendMail()
-        //{
-        //    manufacturer = new Manufacturer() { Id = 1, Name = "Test2", EmailReport = "Test@Test.test", Icon = null };
-
-        //    sut.Mail(manufacturer);
-
-
-        //}
 
     }
 }
