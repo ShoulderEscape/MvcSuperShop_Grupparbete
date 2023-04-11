@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="JsonHandler\outfiles\**" />
+    <EmbeddedResource Remove="JsonHandler\outfiles\**" />
+    <None Remove="JsonHandler\outfiles\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="11.0.0" />
     <PackageReference Include="Bogus" Version="34.0.2" />
     <PackageReference Include="ConsoleAppFramework" Version="4.2.4" />
@@ -23,7 +29,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="JsonHandler\outfiles\pricerunner\" />
     <Folder Include="Migrations\" />
   </ItemGroup>
 
