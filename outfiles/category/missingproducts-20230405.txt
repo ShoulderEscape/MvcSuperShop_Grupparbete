@@ -1,0 +1,11 @@
+Hatchback
+Cargo Van
+Coupe
+Crew Cab Pickup
+Minivan
+Passenger Van
+Sedan
+Extended Cab Pickup
+SUV
+Convertible
+Wagon
