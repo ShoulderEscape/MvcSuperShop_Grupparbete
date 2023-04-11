@@ -24,7 +24,8 @@ namespace ShopGeneral.Commands
                 HandleJsonFile file = new HandleJsonFile();
                 var dbcontext = Context.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
-                file.SetTestProductToDataBaseValues(dbcontext.Products, dbcontext.Categories, dbcontext.Manufacturers);
+                file.RunBothMethods(dbcontext.Products, dbcontext.Categories, dbcontext.Manufacturers);
+
             }
 
             Console.WriteLine("DONE");
