@@ -22,7 +22,7 @@
                 var response = await client.GetAsync(product.ImageUrl);
                 response.EnsureSuccessStatusCode();
 
-                //Console.WriteLine($"bild {i} godkänd");
+                Console.WriteLine($"bild {i} godkänd");
                 //var errorMessage = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss}: Product {product.Id} missing image: {product.ImageUrl}";
                 //httperrorlist.Add(errorMessage); (MANUAL TEST)
             }
@@ -46,7 +46,6 @@
             foreach (var httperror in httperrors)
             {
                 Console.WriteLine(" wrote to file ");
-                //File.AppendAllText(missingImagesPath, httperror + Environment.NewLine);
                 streamWriter.WriteLine(httperror+Environment.NewLine);
             }
         }

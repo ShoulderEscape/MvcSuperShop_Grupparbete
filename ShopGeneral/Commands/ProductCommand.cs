@@ -21,12 +21,11 @@ namespace ShopGeneral.Commands
             Console.WriteLine("Creating file for Pricerunner...");
 
             if (to == "--to=pricerunner")
-            
             {
                 HandleJsonFile file = new HandleJsonFile();
                 var dbcontext = Context.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
-                file.SetTestProductToDataBaseValues(dbcontext.Products, dbcontext.Categories, dbcontext.Manufacturers);
+                file.RunBothMethods(dbcontext.Products, dbcontext.Categories, dbcontext.Manufacturers);
             }
 
             Console.WriteLine("DONE");
