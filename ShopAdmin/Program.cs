@@ -24,9 +24,9 @@ if (!Directory.Exists(@".\outfiles\category"))
 {
     Directory.CreateDirectory(@".\outfiles\category");
 }
-if (!Directory.Exists(@".\outfiles\product")) 
+if (!Directory.Exists(@".\outfiles\products")) 
 {
-    Directory.CreateDirectory(@".\outfiles\product");
+    Directory.CreateDirectory(@".\outfiles\products");
 }
 
 var builder = ConsoleApp.CreateBuilder(args);
