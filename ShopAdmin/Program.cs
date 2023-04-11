@@ -15,20 +15,18 @@ using ShopGeneral.Commands;
 if (!Directory.Exists(@".\outfiles")) 
 {
     Directory.CreateDirectory("outfiles");
-
-    if (!Directory.Exists(@".\outfiles\pricerunner")) 
-    {
-        Directory.CreateDirectory(@".\outfiles\pricerunner");
-    }
-    if (!Directory.Exists(@".\outfiles\category")) 
-    {
-        Directory.CreateDirectory(@".\outfiles\category");
-    }
-    if (!Directory.Exists(@".\outfiles\product")) 
-    {
-        Directory.CreateDirectory(@".\outfiles\product");
-    }
-
+}
+if (!Directory.Exists(@".\outfiles\pricerunner")) 
+{
+    Directory.CreateDirectory(@".\outfiles\pricerunner");
+}
+if (!Directory.Exists(@".\outfiles\category")) 
+{
+    Directory.CreateDirectory(@".\outfiles\category");
+}
+if (!Directory.Exists(@".\outfiles\product")) 
+{
+    Directory.CreateDirectory(@".\outfiles\product");
 }
 
 var builder = ConsoleApp.CreateBuilder(args);
