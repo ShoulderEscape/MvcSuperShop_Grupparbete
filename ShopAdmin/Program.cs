@@ -11,6 +11,24 @@ using ShopGeneral.CategoryValidator;
 using ConsoleAppFramework;
 using ShopGeneral.Commands;
 
+
+if (!Directory.Exists(@".\outfiles")) 
+{
+    Directory.CreateDirectory("outfiles");
+}
+if (!Directory.Exists(@".\outfiles\pricerunner")) 
+{
+    Directory.CreateDirectory(@".\outfiles\pricerunner");
+}
+if (!Directory.Exists(@".\outfiles\category")) 
+{
+    Directory.CreateDirectory(@".\outfiles\category");
+}
+if (!Directory.Exists(@".\outfiles\product")) 
+{
+    Directory.CreateDirectory(@".\outfiles\product");
+}
+
 var builder = ConsoleApp.CreateBuilder(args);
 
 builder.ConfigureServices((ctx, services) =>
@@ -51,10 +69,3 @@ app.Run();
 //verify all product images exists 
 //report categories without products
 //report  
-ConsoleApp GetDbContext(ConsoleApp app)
-{
-    return app; 
-}
-
-
-
