@@ -9,6 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="BuggTests\**" />
+    <EmbeddedResource Remove="BuggTests\**" />
+    <None Remove="BuggTests\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="ConsoleAppFramework" Version="4.2.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.4" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.2" />
@@ -19,10 +25,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ShopGeneral\ShopGeneral.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="BuggTests\" />
   </ItemGroup>
 
 </Project>
